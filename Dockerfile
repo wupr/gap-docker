@@ -43,7 +43,9 @@ RUN make install
 
 # Build packages
 WORKDIR ./pkg
-RUN MAKEFLAGS=-j8 ../bin/BuildPackages.sh
+RUN ../bin/BuildPackages.sh
+# One can use the `MAKEFLAGS` variable to change the number of cores to use.
+# E.g. `RUN MAKEFLAGS=-j8 ../bin/BuildPackages.sh` to use 8 cores.
 
 
 FROM base AS out
